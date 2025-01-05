@@ -1,4 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
+    // Placeholder für login
+    const userName = sessionStorage.getItem("userName");
+    document.getElementById("username").textContent = userName;
+
     // Back-Button erstellen
     const backButton = document.createElement("button");
     backButton.textContent = "Zurück";
@@ -51,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
         buttonsDiv.className = "assignment-buttons";
     
-        if (type === "current" || type === "past") {
+        if (type === "current"){
             const uploadButton = document.createElement("button");
             uploadButton.textContent = "Hochladen";
             uploadButton.className = "upload";
@@ -77,7 +81,9 @@ document.addEventListener("DOMContentLoaded", () => {
             });
     
             buttonsDiv.appendChild(uploadButton);
-
+        }
+    
+        if (type === "current" || type === "past") {
             // Download-Button bleibt bestehen
             const downloadButton = document.createElement("button");
             downloadButton.textContent = "Herunterladen";
@@ -85,11 +91,12 @@ document.addEventListener("DOMContentLoaded", () => {
             downloadButton.addEventListener("click", () => alert(`Herunterladen von: ${assignment.name}`));
             buttonsDiv.appendChild(downloadButton);
         }
-    
+
         if (type === "past" && assignment.correction) {
             const correctionButton = document.createElement("button");
             correctionButton.textContent = "Korrektur herunterladen";
             correctionButton.className = "correction";
+            correctionButton.addEventListener("click", () => alert(`Herunterladen von ${assignment.name} Korrektur`));
             buttonsDiv.appendChild(correctionButton);
         }
     
@@ -118,8 +125,4 @@ document.addEventListener("DOMContentLoaded", () => {
         lockedList.appendChild(li);
     });
 
-    // Placeholder für login
-    const username = document.getElementById("username");
-    const userName = sessionStorage.getItem("userName");
-    username.textContent = userName;
 });
