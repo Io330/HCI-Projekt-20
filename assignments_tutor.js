@@ -76,13 +76,20 @@ document.addEventListener("DOMContentLoaded", () => {
             alert(`Korrektur für ${student.name} herunterladen.`);
         });
 
-        // Buttons hinzufügen
+        // Checkbox um einzelne Abgaben auszuwählen
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.className = "student-checkbox";
+        checkbox.dataset.submission = student.submission;
+
+        // Buttons und Checkbox hinzufügen
         buttonsDiv.appendChild(downloadButton);
         buttonsDiv.appendChild(uploadButton);
         buttonsDiv.appendChild(correctionButton);
 
         li.appendChild(nameDiv);
         li.appendChild(buttonsDiv);
+        li.appendChild(checkbox);
 
         return li;
     };
@@ -90,5 +97,30 @@ document.addEventListener("DOMContentLoaded", () => {
     // Studentenliste füllen
     students.forEach(student => {
         studentList.appendChild(createStudentContainer(student));
+    });
+
+    // Alle Abgaben herunterladen
+    const downloadAllButton = document.getElementById("downloadAllButton");
+    downloadAllButton.addEventListener("click", () => {
+        students.forEach(student => {
+            console.log(`Herunterladen von: ${student.submission}`);
+        });
+        alert("Alle Abgaben werden heruntergeladen!");
+    });
+
+    // Ausgewählte Abgaben herunterladen
+    const downloadSelectedButton = document.getElementById("downloadSelectedButton");
+    downloadSelectedButton.addEventListener("click", () => {
+        const checkboxes = document.querySelectorAll(".student-checkbox:checked");
+        if (checkboxes.length === 0) {
+            alert("Bitte wählen Sie mindestens eine Abgabe aus.");
+            return;
+        }
+
+        checkboxes.forEach(checkbox => {
+            console.log(`Herunterladen von: ${checkbox.dataset.submission}`);
+            // Abgaben herunterladen
+        });
+        alert("Ausgewählte Abgaben werden heruntergeladen!");
     });
 });

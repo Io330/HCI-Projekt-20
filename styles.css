@@ -230,3 +230,35 @@ ul li:last-child {
     text-decoration: none;
     cursor: pointer;
 }
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.download-all, .download-selected {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.download-all:hover, .download-selected:hover {
+    background-color: #45a049;
+}
+
+.student-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.student-checkbox {
+    margin-left: 10px;
+}
