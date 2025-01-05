@@ -19,15 +19,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const eventTitle = params.get("title");
     document.getElementById("eventTitle").textContent = `${eventTitle}`;
 
-    // Beispiel-Daten mit Abgabezeit
+    // Beispiel-Daten mit Abgabezeit, muss später von Datenbank geladen werden
     const assignments = {
         current: [
             { id: 1, name: "Abgabe 1: HTML Basics", due: "15.01.2025" },
             { id: 2, name: "Abgabe 2: CSS Styling", due: "22.01.2025" },
         ],
         past: [
-            { id: 3, name: "Abgabe 3: JavaScript Basics", due: "08.01.2025", correction: true },
-            { id: 4, name: "Abgabe 4: Backend-Setup", due: "01.01.2025", correction: true },
+            { id: 3, name: "Abgabe 3: JavaScript Basics", due: "08.01.2025", correction: true, points: 20 },
+            { id: 4, name: "Abgabe 4: Backend-Setup", due: "01.01.2025", correction: true, points: 18 },
         ],
         locked: [
             { id: 5, name: "Abgabe 5: UI/UX-Design", due: "Verfügbar ab 20.01.2025" },
@@ -43,15 +43,23 @@ document.addEventListener("DOMContentLoaded", () => {
         const textDiv = document.createElement("div");
         const title = document.createElement("div");
         const dueDate = document.createElement("div");
+        const points = document.createElement("div");
         const buttonsDiv = document.createElement("div");
     
         title.textContent = assignment.name;
-        dueDate.textContent = `Abgabe bis: ${assignment.due}`;
+        if (assignment.correction){
+            dueDate.textContent = `Abgelaufen: ${assignment.due}`;
+            points.textContent = `${assignment.points} Punkte`;
+            points.className = "points";
+        }else{
+            dueDate.textContent = `Abgabe bis: ${assignment.due}`;
+        }
         dueDate.className = "due-date";
     
         textDiv.className = "assignment-text";
         textDiv.appendChild(title);
         textDiv.appendChild(dueDate);
+        textDiv.appendChild(points);
     
         buttonsDiv.className = "assignment-buttons";
     
