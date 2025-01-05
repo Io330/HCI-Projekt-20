@@ -21,11 +21,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Beispiel Studenten Daten
     const students = [
-        { id: 1, name: "Student 1", submission: "Abgabe_1.zip" },
-        { id: 2, name: "Student 2", submission: "Abgabe_2.zip" },
-        { id: 3, name: "Student 3", submission: "Abgabe_3.zip" },
-        { id: 4, name: "Student 4", submission: "Abgabe_4.zip" },
-        { id: 5, name: "Student 5", submission: "Abgabe_5.zip" }
+        { id: 1, name: "Student 1", submission: "Student_1.zip" },
+        { id: 2, name: "Student 2", submission: "Student_2.zip" },
+        { id: 3, name: "Student 3", submission: "Student_3.zip" },
+        { id: 4, name: "Student 4", submission: "Student_4.zip" },
+        { id: 5, name: "Student 5", submission: "Student_5.zip" }
     ];
 
     // Funktion zur Erstellung der Studentenzeilen
