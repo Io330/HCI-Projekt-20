@@ -1,4 +1,47 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const modal = document.getElementById("uploadModal");
+    const closeModal = document.getElementById("closeModal");
+    const uploadForm = document.getElementById("uploadForm");
+
+    const openModal = () => {
+        modal.style.display = "block";
+    };
+
+    const closeModalFunction = () => {
+        modal.style.display = "none";
+    };
+
+    closeModal.addEventListener("click", closeModalFunction);
+
+    // Wenn der Nutzer irgendwo außerhalb des Modals klickt, schließen
+    window.addEventListener("click", (event) => {
+        if (event.target === modal) {
+            closeModalFunction();
+        }
+    });
+
+    uploadForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const fileInput = document.getElementById("fileInput");
+        const feedback = document.getElementById("feedback");
+
+        if (!fileInput.files[0]) {
+            alert("Bitte wählen Sie eine Datei aus.");
+            return;
+        }
+
+        if (!fileInput.files[0].name.endsWith(".zip")) {
+            alert("Nur ZIP-Dateien sind erlaubt!");
+            return;
+        }
+
+        const file = fileInput.files[0];
+        const userFeedback = feedback.value;
+
+        alert(`Datei: ${file.name}\nFeedback: ${userFeedback}\nErfolgreich hochgeladen!`);
+        closeModalFunction(); // Schließe das Modal nach dem Hochladen
+    });
+
     // Placeholder für login
     const userName = sessionStorage.getItem("userName");
     document.getElementById("username").textContent = userName;
@@ -68,26 +111,8 @@ document.addEventListener("DOMContentLoaded", () => {
             uploadButton.textContent = "Hochladen";
             uploadButton.className = "upload";
     
-            // Dateiauswahl-Input erstellen (versteckt)
-            const fileInput = document.createElement("input");
-            fileInput.type = "file";
-            fileInput.accept = ".zip"; // Nur ZIP-Dateien erlauben
-            fileInput.style.display = "none"; // Verstecken, bis es benötigt wird
-    
-            uploadButton.addEventListener("click", () => {
-                fileInput.click(); // Öffnet den Dateiauswahl-Dialog
-            });
-    
-            // Wenn eine Datei ausgewählt wird
-            fileInput.addEventListener("change", (event) => {
-                const file = event.target.files[0];
-                if (file && file.name.endsWith(".zip")) {
-                    alert(`Datei ${file.name} erfolgreich hochgeladen!`);
-                } else {
-                    alert("Bitte wählen Sie eine ZIP-Datei aus."); // HAL goes here
-                }
-            });
-    
+            uploadButton.addEventListener("click", openModal);
+
             buttonsDiv.appendChild(uploadButton);
         }
     
