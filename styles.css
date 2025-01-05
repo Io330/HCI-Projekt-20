@@ -28,15 +28,14 @@ header .user-info {
 main {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap; /* Ermöglicht das Umfließen der Abschnitte */
-    gap: 20px; /* Abstand zwischen den Abschnitten */
-    justify-content: space-between; /* Verteilt die Abschnitte gleichmäßig */
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
     padding: 20px;
     width: 100%;
 }
 
 section {
-    flex: 1 1 calc(50% - 10px); /* Beide Sektionen nehmen 50% der Breite ein, minus ein bisschen Abstand */
     box-sizing: border-box;
 }
 
@@ -69,7 +68,7 @@ section h2 {
 
 /* Event List */
 #eventList {
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     list-style-type: none;
     max-height: 80vh; /* Keeps the list scrollable */
