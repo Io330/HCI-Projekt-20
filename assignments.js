@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (file && file.name.endsWith(".zip")) {
                     alert(`Datei ${file.name} erfolgreich hochgeladen!`);
                 } else {
-                    alert("Bitte wählen Sie eine ZIP-Datei aus.");
+                    alert("Bitte wählen Sie eine ZIP-Datei aus."); // HAL goes here
                 }
             });
     
@@ -117,4 +117,9 @@ document.addEventListener("DOMContentLoaded", () => {
         li.textContent = `${assignment.name} - ${assignment.due}`;
         lockedList.appendChild(li);
     });
+
+    // Placeholder für login
+    const username = document.getElementById("username");
+    const userName = sessionStorage.getItem("userName");
+    username.textContent = userName;
 });

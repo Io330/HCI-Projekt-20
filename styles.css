@@ -23,6 +23,7 @@ header .user-info {
     left: 20px;
     font-size: 14px;
     font-weight: bold;
+    margin: 10px;
 }
 
 main {
@@ -32,14 +33,15 @@ main {
     gap: 20px;
     justify-content: space-between;
     padding: 20px;
-    width: 100%;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 section {
     box-sizing: border-box;
 }
 
-/* Titel der Abschnitte */
 section h2 {
     text-align: center;
     margin-bottom: 10px;
@@ -47,15 +49,14 @@ section h2 {
 
 /* Search Bar */
 .search-container {
-    position: sticky; /* Fixes the search bar at the top */
+    position: sticky;
     top: 0;
     background-color: white;
-    z-index: 10;
-    padding: 10px;
+    padding-bottom: 10px;
     border-bottom: 1px solid #ddd;
     width: 100%;
-    max-width: 600px;
-    margin: 0 auto; /* Centered horizontally */
+    max-width: 400px;
+    margin: 0 auto;
 }
 
 #searchBar {
@@ -64,6 +65,7 @@ section h2 {
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
+    box-sizing: border-box;
 }
 
 /* Event List */
@@ -71,13 +73,14 @@ section h2 {
     margin: 0 auto;
     padding: 0;
     list-style-type: none;
-    max-height: 80vh; /* Keeps the list scrollable */
+    max-height: 80vh;
     overflow-y: auto;
     width: 100%;
-    max-width: 600px;
+    max-width: 400px;
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 5px;
+    flex: 1 1 calc(50% - 10px);
 }
 
 #eventList li {
@@ -87,8 +90,8 @@ section h2 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%; /* Stellen Sie sicher, dass die Listenelemente die volle Breite ausfüllen */
-    box-sizing: border-box; /* Berücksichtigt Padding und Border bei der Breitenberechnung */
+    width: 100%;
+    box-sizing: border-box;
 }
 
 #eventList li:last-child {
@@ -161,7 +164,7 @@ ul li:last-child {
 }
 
 .assignment-text div {
-    margin-bottom: 5px; /* Space between title and due date */
+    margin-bottom: 5px; 
 }
 
 .due-date {

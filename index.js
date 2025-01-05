@@ -27,7 +27,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Benutzerinformationen setzen (Platzhalter)
     const username = document.getElementById("username");
+    const userName = "Max Mustermann" // Muss später von login kommen
+    sessionStorage.setItem("userName", userName);
     if (username) {
-        username.textContent = "Student";
+        username.textContent = userName;
     }
 });
