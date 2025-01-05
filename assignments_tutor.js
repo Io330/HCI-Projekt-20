@@ -116,11 +116,12 @@ document.addEventListener("DOMContentLoaded", () => {
             alert("Bitte wählen Sie mindestens eine Abgabe aus.");
             return;
         }
-
+        const selectedSubmissions = [];
         checkboxes.forEach(checkbox => {
-            console.log(`Herunterladen von: ${checkbox.dataset.submission}`);
+            selectedSubmissions.push(checkbox.dataset.submission);
             // Abgaben herunterladen
         });
-        alert("Ausgewählte Abgaben werden heruntergeladen!");
+    
+        alert(`Ausgewählte Abgaben werden heruntergeladen: ${selectedSubmissions.join(", ")}`);
     });
 });
