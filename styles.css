@@ -1,0 +1,195 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+header .user-info {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap; /* Ermöglicht das Umfließen der Abschnitte */
+    gap: 20px; /* Abstand zwischen den Abschnitten */
+    justify-content: space-between; /* Verteilt die Abschnitte gleichmäßig */
+    padding: 20px;
+    width: 100%;
+}
+
+section {
+    flex: 1 1 calc(50% - 10px); /* Beide Sektionen nehmen 50% der Breite ein, minus ein bisschen Abstand */
+    box-sizing: border-box;
+}
+
+/* Titel der Abschnitte */
+section h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Search Bar */
+.search-container {
+    position: sticky; /* Fixes the search bar at the top */
+    top: 0;
+    background-color: white;
+    z-index: 10;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto; /* Centered horizontally */
+}
+
+#searchBar {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Event List */
+#eventList {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    max-height: 80vh; /* Keeps the list scrollable */
+    overflow-y: auto;
+    width: 100%;
+    max-width: 600px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#eventList li {
+    cursor: pointer;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Stellen Sie sicher, dass die Listenelemente die volle Breite ausfüllen */
+    box-sizing: border-box; /* Berücksichtigt Padding und Border bei der Breitenberechnung */
+}
+
+#eventList li:last-child {
+    border-bottom: none;
+}
+
+#eventList li button {
+    margin-left: 10px;
+}
+
+button {
+    padding: 5px 10px;
+    box-sizing: border-box;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button.upload {
+    background-color: #4CAF50;
+    color: white;
+}
+
+button.download {
+    background-color: #008CBA;
+    color: white;
+}
+
+button.correction {
+    background-color: #f44336;
+    color: white;
+}
+
+/* Assignment Page Styles */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 auto; /* Zentriert die Liste */
+    max-width: 600px; /* Maximalbreite für die Liste */
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+ul li {
+    display: flex;
+    justify-content: space-between; /* Text links, Buttons rechts */
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.assignment-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+ul li:last-child {
+    border-bottom: none;
+}
+
+.assignment-text {
+    flex: 1;
+    text-align: left;
+    padding-right: 10px;
+}
+
+.assignment-text div {
+    margin-bottom: 5px; /* Space between title and due date */
+}
+
+.due-date {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.assignment-buttons {
+    text-align: right;
+}
+
+/* Back Button */
+.back-button {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+.back-button:hover {
+    background-color: #45a049;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Assignments</title>
+        <meta name="description" content="Assignments List for the Course">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <header>
+            <div class="user-info">Eingeloggt als: <span id="username">Student</span></div>
+            <h1 id="eventTitle">Beispiel Veranstaltung</h1>
+        </header>
+
+        <main>
+            <!-- Back Button -->
+            <div class="back-container">
+                <button class="back-button" id="backButton">Zurück</button>
+            </div>
+
+            <section>
+                <h2>Aktuelle Abgaben</h2>
+                <ul id="currentAssignments">
+                    <!-- Dynamisch gefüllt -->
+                </ul>
+            </section>
+            <section>
+                <h2>Vorherige Abgaben</h2>
+                <ul id="pastAssignments">
+                    <!-- Dynamisch gefüllt -->
+                </ul>
+            </section>
+            <section>
+                <h2>Noch nicht freigeschaltete Abgaben</h2>
+                <ul id="lockedAssignments">
+                    <!-- Dynamisch gefüllt -->
+                </ul>
+            </section>
+        </main>
+
+        <script src="assignments.js" async defer></script>
+    </body>
+</html>
