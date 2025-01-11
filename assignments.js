@@ -26,12 +26,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const feedback = document.getElementById("feedback");
 
         if (!fileInput.files[0]) {
-            alert("Bitte wählen Sie eine Datei aus.");
+            alert("Bitte wähl eine Datei aus.");
             return;
         }
 
         if (!fileInput.files[0].name.endsWith(".zip")) {
-            alert("Nur ZIP-Dateien sind erlaubt!");
+            alert("Nur ZIP-Dateien sind erlaubt! Prüf das Format deiner Datei.");
             return;
         }
 

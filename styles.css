@@ -114,6 +114,7 @@ section h2 {
 
 button {
     padding: 5px 10px;
+    margin: 0 5px;
     box-sizing: border-box;
     border: none;
     cursor: pointer;
@@ -144,7 +145,7 @@ ul {
     list-style-type: none;
     padding: 0;
     margin: 0 auto; /* Zentriert die Liste */
-    max-width: 600px; /* Maximalbreite für die Liste */
+    max-width: 700px; /* Maximalbreite für die Liste */
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -189,7 +190,7 @@ ul li:last-child {
 .assignment-buttons, .action-buttons {
     display: flex;
     justify-content: space-between;
-    gap: 5px;
+    gap: 15px;
     text-align: right;
 }
 
@@ -250,7 +251,7 @@ ul li:last-child {
 .button-container {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 40px;
     margin-bottom: 20px;
 }
 
@@ -267,7 +268,7 @@ ul li:last-child {
 }
 
 .student-row {
-    display: flex;
+    display: flex;+
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;

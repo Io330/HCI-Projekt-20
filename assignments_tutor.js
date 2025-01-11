@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Download Abgabe
         const downloadButton = document.createElement("button");
-        downloadButton.textContent = "DL Abgabe";
+        downloadButton.textContent = "Herunterladen";
         downloadButton.className = "download";
         downloadButton.addEventListener("click", () => {
             alert(`Abgabe herunterladen: ${student.submission}`);
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Korrektur hochladen
         const uploadButton = document.createElement("button");
-        uploadButton.textContent = "Bewertung hochladen";
+        uploadButton.textContent = "Korrektur Hochladen";
         uploadButton.className = "upload";
 
         const fileInput = document.createElement("input");
@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // DL Korrektur
         const correctionButton = document.createElement("button");
-        correctionButton.textContent = "DL Korrektur";
+        correctionButton.textContent = "Korrektur Herunterladen";
         correctionButton.className = "correction";
         correctionButton.addEventListener("click", () => {
             alert(`Korrektur für ${student.name} herunterladen.`);
