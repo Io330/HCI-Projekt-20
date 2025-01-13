@@ -3,7 +3,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const closeModal = document.getElementById("closeModal");
     const uploadForm = document.getElementById("uploadForm");
 
-    const openModal = () => {
+    const openModal = (event) => {
+        const button = event.target;
+        const assignmentID = button.dataset.assignment;
+
+        const assignmentIDInput = document.getElementById("assignmentIdInput");
+        assignmentIDInput.value = assignmentID
+
         modal.style.display = "block";
     };
 
@@ -24,6 +30,8 @@ document.addEventListener("DOMContentLoaded", () => {
         event.preventDefault();
         const fileInput = document.getElementById("fileInput");
         const feedback = document.getElementById("feedback");
+        const assignmentIdInput = document.getElementById("assignmentIdInput");
+        const assignmentId = assignmentIdInput.value;
 
         if (!fileInput.files[0]) {
             alert("Bitte wähl eine Datei aus.");
@@ -38,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const file = fileInput.files[0];
         const userFeedback = feedback.value;
 
-        alert(`Datei: ${file.name}\nFeedback: ${userFeedback}\nErfolgreich hochgeladen!`);
+        alert(`Datei: ${file.name}\nFor: ${assignmentId}\nFeedback: ${userFeedback}\nErfolgreich hochgeladen!`);
         closeModalFunction(); // Schließe das Modal nach dem Hochladen
     });
 
@@ -111,8 +119,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const uploadButton = document.createElement("button");
             uploadButton.textContent = "Hochladen";
             uploadButton.className = "upload";
+            uploadButton.dataset.assignment = assignment.name
     
-            uploadButton.addEventListener("click", openModal);
+            uploadButton.addEventListener("click", (event) => openModal(event));
 
             stateDiv.textContent = "Abgabe: "
             stateDiv.textContent += assignment.state === "uploaded" ? "✅" : "❌"; 

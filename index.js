@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Placeholder events
     const eventData = [
-        {title: "Einführung in HTML", tutoren: [""]},
+        {title: "Einführung in HTML", tutoren: [""], due: true},
         {title: "CSS für Fortgeschrittene", tutoren: [""]},
         {title: "JavaScript Basics", tutoren: ["Max Mustermann"]},
         {title: "Backend-Entwicklung", tutoren: [""]},
@@ -31,9 +31,19 @@ document.addEventListener("DOMContentLoaded", () => {
     // Überprüfen, ob eventList vorhanden ist und Elemente enthält
     if (eventList) {
         // Liste füllen
-        eventData.forEach(event => {
-            newEntry = document.createElement("li");
-            newEntry.textContent = event.title;
+        eventData.forEach((event) => {
+            const newEntry = document.createElement("li");
+
+            // Separate title and icons
+            const titleSpan = document.createElement("span");
+            titleSpan.textContent = event.title;
+            newEntry.appendChild(titleSpan);
+
+            const iconDiv = document.createElement("div");
+            iconDiv.textContent = event.due ? " ❗" : "";
+            iconDiv.textContent += event.tutoren.includes(userName) ? " 🔧" : "";
+            newEntry.appendChild(iconDiv);
+
             eventList.appendChild(newEntry);
         });
 
@@ -49,13 +59,14 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         // Navigation zur Detailseite
-        events.forEach((event, index) => {
+        events.forEach((event) => {
             event.addEventListener("click", () => {
-                const eventTitle = event.textContent.trim();
+                // Use only the title span's textContent
+                const eventTitle = event.querySelector("span").textContent.trim();
                 const params = new URLSearchParams({ title: eventTitle });
-                if(isTutor(eventTitle)){
+                if (isTutor(eventTitle)) {
                     window.location.href = `assignments_tutor.html?${params.toString()}`;
-                }else{
+                } else {
                     window.location.href = `assignments.html?${params.toString()}`;
                 }
             });
