@@ -1,4 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const modal = document.getElementById("uploadModal");
+    const closeModal = document.getElementById("closeModal");
+    const uploadForm = document.getElementById("uploadForm");
+
     // Placeholder für login
     const userName = sessionStorage.getItem("userName");
     document.getElementById("username").textContent = userName;
@@ -27,6 +31,45 @@ document.addEventListener("DOMContentLoaded", () => {
         { id: 4, name: "Student 4", submission: "Student_4.zip" },
         { id: 5, name: "Student 5", submission: "Student_5.zip" }
     ];
+
+    const openModal = () => {
+        modal.style.display = "block";
+    };
+
+    const closeModalFunction = () => {
+        modal.style.display = "none";
+    };
+
+    closeModal.addEventListener("click", closeModalFunction);
+
+    // Wenn der Nutzer irgendwo außerhalb des Modals klickt, schließen
+    window.addEventListener("click", (event) => {
+        if (event.target === modal) {
+            closeModalFunction();
+        }
+    });
+
+    uploadForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const fileInput = document.getElementById("fileInput");
+        const feedback = document.getElementById("feedback");
+
+        if (!fileInput.files[0]) {
+            alert("Bitte wähl eine Datei aus.");
+            return;
+        }
+
+        if (!fileInput.files[0].name.endsWith(".zip")) {
+            alert("Nur ZIP-Dateien sind erlaubt! Prüf das Format deiner Datei.");
+            return;
+        }
+
+        const file = fileInput.files[0];
+        const userFeedback = feedback.value;
+
+        alert(`Datei: ${file.name}\nPunkte: ${userFeedback}\nErfolgreich hochgeladen!`);
+        closeModalFunction(); // Schließe das Modal nach dem Hochladen
+    });
 
     // Funktion zur Erstellung der Studentenzeilen
     const createStudentContainer = (student) => {
@@ -57,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
         fileInput.type = "file";
         fileInput.style.display = "none";
 
-        uploadButton.addEventListener("click", () => fileInput.click());
+        uploadButton.addEventListener("click", openModal);
 
         fileInput.addEventListener("change", (event) => {
             const file = event.target.files[0];
