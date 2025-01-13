@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Beispiel Studenten Daten
     const students = [
-        { id: 1, name: "Student 1", submission: "Student_1.zip" },
+        { id: 1, name: "Student 1", submission: "Student_1.zip", state: "corrected" },
         { id: 2, name: "Student 2", submission: "Student_2.zip" },
         { id: 3, name: "Student 3", submission: "Student_3.zip" },
         { id: 4, name: "Student 4", submission: "Student_4.zip" },
@@ -80,6 +80,9 @@ document.addEventListener("DOMContentLoaded", () => {
         nameDiv.textContent = student.name;
         nameDiv.className = "student-name";
 
+        const stateDiv = document.createElement("div")
+        stateDiv.textContent = student.state === "corrected" ? "✅" : "❌"; 
+
         const buttonsDiv = document.createElement("div");
         buttonsDiv.className = "action-buttons";
 
@@ -131,6 +134,7 @@ document.addEventListener("DOMContentLoaded", () => {
         buttonsDiv.appendChild(correctionButton);
 
         li.appendChild(nameDiv);
+        li.appendChild(stateDiv);
         li.appendChild(buttonsDiv);
         li.appendChild(checkbox);
 
