@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Beispiel-Daten mit Abgabezeit, muss später von Datenbank geladen werden
     const assignments = {
         current: [
-            { id: 1, name: "Abgabe 1: HTML Basics", due: "15.01.2025" },
+            { id: 1, name: "Abgabe 1: HTML Basics", due: "15.01.2025", state: "uploaded" },
             { id: 2, name: "Abgabe 2: CSS Styling", due: "22.01.2025" },
         ],
         past: [
@@ -87,6 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const title = document.createElement("div");
         const dueDate = document.createElement("div");
         const points = document.createElement("div");
+        const stateDiv = document.createElement("div")
         const buttonsDiv = document.createElement("div");
     
         title.textContent = assignment.name;
@@ -113,6 +114,9 @@ document.addEventListener("DOMContentLoaded", () => {
     
             uploadButton.addEventListener("click", openModal);
 
+            stateDiv.textContent = "Abgabe: "
+            stateDiv.textContent += assignment.state === "uploaded" ? "✅" : "❌"; 
+            stateDiv.className = "stateDiv"
             buttonsDiv.appendChild(uploadButton);
         }
     
@@ -134,6 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     
         containerDiv.appendChild(textDiv);
+        containerDiv.appendChild(stateDiv)
         containerDiv.appendChild(buttonsDiv);
     
         li.appendChild(containerDiv);
