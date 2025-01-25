@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 setTimeout(() => {
                     halMessage.style.display = "none";
                 }, 500);
-            }, 5000);
+            }, 7000);
             return;
         }
 
