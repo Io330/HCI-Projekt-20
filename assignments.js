@@ -33,6 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const feedback = document.getElementById("feedback");
         const assignmentIdInput = document.getElementById("assignmentIdInput");
         const assignmentId = assignmentIdInput.value;
+        const uploadFormButton = document.getElementById("uploadFormButton");
 
         if (!fileInput.files[0]) {
             alert("Bitte wähl eine Datei aus.");
@@ -44,10 +45,12 @@ document.addEventListener("DOMContentLoaded", () => {
             halText.textContent = `Es tut mir leid, ${userName}, aber das kann ich nicht tun. Nur ZIP-Dateien sind erlaubt.`;
             halMessage.style.opacity = "1";
             halMessage.style.display = "flex";
+            uploadFormButton.disabled = true;
             setTimeout(() => {
                 halMessage.style.opacity = "0";
                 setTimeout(() => {
                     halMessage.style.display = "none";
+                    uploadFormButton.disabled = false;
                 }, 500);
             }, 7000);
             return;
