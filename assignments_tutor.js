@@ -121,6 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
         correctionButton.addEventListener("click", () => {
             alert(`Korrektur für ${student.name} herunterladen.`);
         });
+        correctionButton.disabled = student.state != "corrected";
 
         // Checkbox um einzelne Abgaben auszuwählen
         const checkbox = document.createElement("input");
