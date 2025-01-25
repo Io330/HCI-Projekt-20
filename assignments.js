@@ -77,8 +77,8 @@ document.addEventListener("DOMContentLoaded", () => {
             { id: 2, name: "Abgabe 2: CSS Styling", due: "22.01.2025" },
         ],
         past: [
-            { id: 3, name: "Abgabe 3: JavaScript Basics", due: "08.01.2025", correction: true, points: 20 },
-            { id: 4, name: "Abgabe 4: Backend-Setup", due: "01.01.2025", correction: true, points: 18 },
+            { id: 3, name: "Abgabe 3: JavaScript Basics", due: "08.01.2025", state: "uploaded", correction: false},
+            { id: 4, name: "Abgabe 4: Backend-Setup", due: "01.01.2025", state: "uploaded", correction: true, points: 18 },
         ],
         locked: [
             { id: 5, name: "Abgabe 5: UI/UX-Design", due: "Verfügbar ab 20.01.2025" },
@@ -135,6 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
             downloadButton.textContent = "Herunterladen";
             downloadButton.className = "download";
             downloadButton.addEventListener("click", () => alert(`Herunterladen von: ${assignment.name}`));
+            downloadButton.disabled = assignment.state != "uploaded";
             buttonsDiv.appendChild(downloadButton);
         }
 

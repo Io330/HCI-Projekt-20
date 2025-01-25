@@ -135,6 +135,15 @@ button.download {
     color: white;
 }
 
+button.download:disabled {
+    background-color: gray;
+    color: black;
+}
+
+button.download:disabled:hover {
+    cursor: default;
+}
+
 button.correction {
     background-color: #3e427e;
     color: white;
