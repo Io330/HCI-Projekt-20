@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
     uploadForm.addEventListener("submit", (event) => {
         event.preventDefault();
         const fileInput = document.getElementById("fileInput");
+        const halMessage = document.getElementById("halMessage");
         const feedback = document.getElementById("feedback");
         const assignmentIdInput = document.getElementById("assignmentIdInput");
         const assignmentId = assignmentIdInput.value;
@@ -39,7 +40,16 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (!fileInput.files[0].name.endsWith(".zip")) {
-            alert("Nur ZIP-Dateien sind erlaubt! Prüf das Format deiner Datei.");
+            // HAL-9000-Nachricht anzeigen
+            halText.textContent = `Es tut mir leid, ${userName}, aber das kann ich nicht tun. Nur ZIP-Dateien sind erlaubt.`;
+            halMessage.style.opacity = "1";
+            halMessage.style.display = "flex";
+            setTimeout(() => {
+                halMessage.style.opacity = "0";
+                setTimeout(() => {
+                    halMessage.style.display = "none";
+                }, 500);
+            }, 5000);
             return;
         }
 
