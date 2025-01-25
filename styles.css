@@ -297,3 +297,7 @@ button:disabled {
     background-color: gray;
     color: black;
 }
+
+button:disabled:hover {
+    background-color: gray;
+}
